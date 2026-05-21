@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,27 +19,89 @@ namespace QSOLogger
             Init();
         }
 
-        int redni_broj_veze = 1;
+        // Init
 
+        int redni_broj_veze = 1;
 
         void Init()
         {
-            broj_veze.Text = redni_broj_veze.ToString("000");
-            vrijeme.Text = DateTime.Now.ToString("HH:mm");
+            vrijeme.Text = DateTime.UtcNow.ToString("HH:mm");
             oznaka.Clear();
-            s_rst.Text = "59";
-            r_rst.Text = "59";
+            Mode_RST();
             lokator.Clear();
         }
 
+        void Mode_RST()
+        {
+            if (mod.Text == "CW")
+            {
+                s_rst.Text = "599";
+                r_rst.Text = "599";
+            }
+            else
+            {
+                s_rst.Text = "59";
+                r_rst.Text = "59";
+            }
+        }
+
+        // Composing
+
         string Compressor()
         {
-            return " " + broj_veze.Text + " | " +
+            return " " +
                 vrijeme.Text + " | " +
+                band.Text + " | " +
+                mod.Text + " | " +
+                frekvencija.Text + " | " +
                 oznaka.Text + " | " +
                 s_rst.Text + " | " +
                 r_rst.Text + " | " +
                 lokator.Text;
+        }
+
+        bool Check()
+        {
+            bool prazan = false;
+
+            if (band.Text == "")
+            {
+                band.BackColor = Color.FromArgb(255, 205, 205);
+                prazan = true;
+            }
+            else
+            {
+                band.BackColor = Color.Empty;
+            }
+
+            if (mod.Text == "")
+            {
+                mod.BackColor = Color.FromArgb(255, 205, 205);
+                prazan = true;
+            }
+            else
+            {
+                mod.BackColor = Color.Empty;
+            }
+
+            if (oznaka.Text == "")
+            {
+                oznaka.BackColor = Color.FromArgb(255, 205, 205);
+                prazan = true;
+            }
+            else
+            {
+                oznaka.BackColor = Color.Empty;
+            }
+
+            if (prazan)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void Unesi_vezu(object sender, KeyEventArgs e)
@@ -47,7 +110,7 @@ namespace QSOLogger
             {
                 e.SuppressKeyPress = true;
 
-                if (oznaka.Text != "")
+                if (Check())
                 {
                     oznaka.BackColor = Color.Empty;
 
@@ -59,15 +122,25 @@ namespace QSOLogger
 
                     oznaka.Focus();
                 }
-
-                else
-                    oznaka.BackColor = Color.FromArgb(255, 205, 205);
             }
         }
 
+
+        // VS Handlers
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            vrijeme.Text = DateTime.Now.ToString("HH:mm");
+            vrijeme.Text = DateTime.UtcNow.ToString("HH:mm");
+        }
+
+        private void spremiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void mod_TextUpdate(object sender, EventArgs e)
+        {
+            Mode_RST();
         }
     }
 }
