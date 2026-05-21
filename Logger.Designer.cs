@@ -41,9 +41,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.veze_log = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.datotekaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.spremiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stanicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacijeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -182,7 +179,6 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.datotekaToolStripMenuItem,
             this.stanicaToolStripMenuItem,
             this.informacijeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -190,28 +186,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(714, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // datotekaToolStripMenuItem
-            // 
-            this.datotekaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.otvoriToolStripMenuItem,
-            this.spremiToolStripMenuItem});
-            this.datotekaToolStripMenuItem.Name = "datotekaToolStripMenuItem";
-            this.datotekaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.datotekaToolStripMenuItem.Text = "Datoteka";
-            // 
-            // otvoriToolStripMenuItem
-            // 
-            this.otvoriToolStripMenuItem.Name = "otvoriToolStripMenuItem";
-            this.otvoriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.otvoriToolStripMenuItem.Text = "Otvori";
-            // 
-            // spremiToolStripMenuItem
-            // 
-            this.spremiToolStripMenuItem.Name = "spremiToolStripMenuItem";
-            this.spremiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.spremiToolStripMenuItem.Text = "Spremi";
-            this.spremiToolStripMenuItem.Click += new System.EventHandler(this.spremiToolStripMenuItem_Click);
             // 
             // stanicaToolStripMenuItem
             // 
@@ -356,9 +330,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox veze_log;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem datotekaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem otvoriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem spremiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stanicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informacijeToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;

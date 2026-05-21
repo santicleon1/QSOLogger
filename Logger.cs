@@ -21,8 +21,6 @@ namespace QSOLogger
 
         // Init
 
-        int redni_broj_veze = 1;
-
         void Init()
         {
             vrijeme.Text = DateTime.UtcNow.ToString("HH:mm");
@@ -47,7 +45,7 @@ namespace QSOLogger
 
         // Composing
 
-        string Compressor()
+        string Compositor()
         {
             return " " +
                 vrijeme.Text + " | " +
@@ -135,9 +133,7 @@ namespace QSOLogger
                 {
                     oznaka.BackColor = Color.Empty;
 
-                    veze_log.Items.Add(Compressor());
-
-                    redni_broj_veze++;
+                    veze_log.Items.Add(Compositor());
 
                     Init();
 
@@ -152,11 +148,6 @@ namespace QSOLogger
         private void timer1_Tick(object sender, EventArgs e)
         {
             vrijeme.Text = DateTime.UtcNow.ToString("HH:mm");
-        }
-
-        private void spremiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void mod_TextUpdate(object sender, EventArgs e)
