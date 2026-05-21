@@ -60,67 +60,39 @@ namespace QSOLogger
 
         bool Check()
         {
-            bool prazan = false;
+            bool valja = true;
+            var error_Boja = Color.FromArgb(255, 205, 205);
 
-            if (band.Text == "")
+            Control[] input = new Control[] {band, mod, oznaka};
+            foreach (var item in input)
             {
-                band.BackColor = Color.FromArgb(255, 205, 205);
-                prazan = true;
-            }
-            else
-            {
-                band.BackColor = Color.Empty;
-            }
+                if (string.IsNullOrWhiteSpace(item.Text))
+                {
+                    item.BackColor = error_Boja;
+                    valja = false;
+                }
 
-            if (mod.Text == "")
-            {
-                mod.BackColor = Color.FromArgb(255, 205, 205);
-                prazan = true;
-            }
-            else
-            {
-                mod.BackColor = Color.Empty;
+                else
+                {
+                    item.BackColor = Color.Empty;
+                }
             }
 
-            if (oznaka.Text == "")
+            input = new Control[] { s_rst, r_rst };
+            foreach (var item in input)
             {
-                oznaka.BackColor = Color.FromArgb(255, 205, 205);
-                prazan = true;
-            }
-            else
-            {
-                oznaka.BackColor = Color.Empty;
-            }
-
-            int check;
-            if (!int.TryParse(s_rst.Text, out check))
-            {
-                s_rst.BackColor = Color.FromArgb(255, 205, 205);
-                prazan = true;
-            }
-            else
-            {
-                s_rst.BackColor = Color.Empty;
+                if (!int.TryParse(item.Text, out _))
+                {
+                    item.BackColor = error_Boja;
+                    valja = false;
+                }
+                else
+                {
+                    item.BackColor = Color.Empty;
+                }
             }
 
-            if (!int.TryParse(r_rst.Text, out check))
-            {
-                r_rst.BackColor = Color.FromArgb(255, 205, 205);
-                prazan = true;
-            }
-            else
-            {
-                r_rst.BackColor = Color.Empty;
-            }
-
-            if (prazan)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return valja;
         }
 
         private void Unesi_vezu(object sender, KeyEventArgs e)
