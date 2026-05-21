@@ -94,6 +94,27 @@ namespace QSOLogger
                 oznaka.BackColor = Color.Empty;
             }
 
+            int check;
+            if (!int.TryParse(s_rst.Text, out check))
+            {
+                s_rst.BackColor = Color.FromArgb(255, 205, 205);
+                prazan = true;
+            }
+            else
+            {
+                s_rst.BackColor = Color.Empty;
+            }
+
+            if (!int.TryParse(r_rst.Text, out check))
+            {
+                r_rst.BackColor = Color.FromArgb(255, 205, 205);
+                prazan = true;
+            }
+            else
+            {
+                r_rst.BackColor = Color.Empty;
+            }
+
             if (prazan)
             {
                 return false;
