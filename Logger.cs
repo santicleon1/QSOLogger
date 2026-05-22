@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -45,17 +46,23 @@ namespace QSOLogger
 
         // Composing
 
-        string Compositor()
+        string Raw_Log()
         {
-            return " " +
-                vrijeme.Text + " | " +
-                band.Text + " | " +
-                mod.Text + " | " +
-                frekvencija.Text + " | " +
-                oznaka.Text + " | " +
-                s_rst.Text + " | " +
-                r_rst.Text + " | " +
-                lokator.Text;
+            LogEntry logEntry = new LogEntry
+            {
+                vrijeme = DateTime.UtcNow.ToString("HHmmss"),
+                band = band.Text,
+                mod = mod.Text,
+                frekvencija = frekvencija.Text,
+                oznaka = oznaka.Text,
+                s_rst = s_rst.Text,
+                r_rst = r_rst.Text,
+                lokator = lokator.Text
+            };
+
+            logEntry.Save_Log();
+
+            return logEntry.Raw_String();
         }
 
         bool Check()
@@ -95,6 +102,61 @@ namespace QSOLogger
             return valja;
         }
 
+        void Freq_Band_Update()
+        {
+            if (frekvencija.Text.Length > 0)
+            {
+                if (frekvencija.Text.Contains(','))
+                {
+                    frekvencija.Text = frekvencija.Text.Replace(',', '.');
+                }
+
+                if (double.TryParse(frekvencija.Text, out double f))
+                {
+                    if (f >= 1.8 && f <= 2.0)
+                    {
+                        band.Text = "160m";
+                    }
+                    else if (f >= 3.5 && f <= 3.8)
+                    {
+                        band.Text = "80m";
+                    }
+                    else if (f >= 7.0 && f <= 7.2)
+                    {
+                        band.Text = "40m";
+                    }
+                    else if (f >= 10.1 && f <= 10.15)
+                    {
+                        band.Text = "30m";
+                    }
+                    else if (f >= 14.0 && f <= 14.35)
+                    {
+                        band.Text = "20m";
+                    }
+                    else if (f >= 18.068 && f <= 18.168)
+                    {
+                        band.Text = "17m";
+                    }
+                    else if (f >= 21.0 && f <= 21.45)
+                    {
+                        band.Text = "15m";
+                    }
+                    else if (f >= 24.89 && f <= 24.99)
+                    {
+                        band.Text = "12m";
+                    }
+                    else if (f >= 28.0 && f <= 29.7)
+                    {
+                        band.Text = "10m";
+                    }
+                    else
+                    {
+                        band.Text = "";
+                    }
+                }
+            }
+        }
+
         private void Unesi_vezu(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -103,9 +165,7 @@ namespace QSOLogger
 
                 if (Check())
                 {
-                    oznaka.BackColor = Color.Empty;
-
-                    veze_log.Items.Add(Compositor());
+                    veze_log.Items.Add(Raw_Log());
 
                     Init();
 
@@ -125,6 +185,26 @@ namespace QSOLogger
         private void mod_TextUpdate(object sender, EventArgs e)
         {
             Mode_RST();
+        }
+
+        private void frekvencija_TextChanged(object sender, EventArgs e)
+        {
+            Freq_Band_Update();
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Directory.Exists("LOG"))
+            {
+                Directory.CreateDirectory("LOG");
+            }
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "explorer.exe",
+                Arguments = Directory.GetCurrentDirectory() + "\\LOG\\",
+                UseShellExecute = true
+            });
         }
     }
 }
