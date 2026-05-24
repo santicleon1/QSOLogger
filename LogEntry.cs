@@ -11,7 +11,6 @@ namespace QSOLogger
 {
     internal class LogEntry
     {
-        public string vrijeme;
         public string band;
         public string mod;
         public string frekvencija;
@@ -23,7 +22,7 @@ namespace QSOLogger
         public string Raw_String()
         {
             return " " +
-                vrijeme + " | " +
+                DateTime.UtcNow.ToString("HH:mm") + " | " +
                 band + " | " +
                 mod + " | " +
                 frekvencija + " | " +
@@ -33,19 +32,38 @@ namespace QSOLogger
                 lokator;
         }
 
+        public string ADIF_Header()
+        {
+            return
+                "ADIF from QSOLogger by santicleon1" + 
+                "<ADIF_VER:5>3.1.7\n" +
+                "<CREATED_TIMESTAMP:15>" + DateTime.UtcNow.ToString("yyyyMMdd HHmmss") + "\n" +
+                "<PROGRAMID:9>QSOLogger\n" +
+                "<PROGRAMVERSION:1>1\n" +
+                "<EOH>";
+        }
+
         public string ADIF_Parse()
         {
             var datum = DateTime.UtcNow.ToString("yyyyMMdd");
+            var vrijeme = DateTime.UtcNow.ToString("HHmmss");
 
-            string parse = "<QSO_DATE:" + datum.Length + ">" + datum + " " +
-                "<TIME_ON:" + vrijeme.Length + ">" + vrijeme + " " +
+            string parse =
+                "<QSO_DATE:" + datum.Length + ">" + datum + " " +
+                "<TIME_ON:" + vrijeme.Length + ">" + vrijeme + " ";
+
+            if (lokator != "")
+                parse += "<GRIDSQUARE:" + lokator.Length + ">" + lokator + " ";
+
+            if (frekvencija != "")
+                parse += "<FREQ:" + frekvencija.Length + ">" + frekvencija + " ";
+
+                parse +=
                 "<BAND:" + band.Length + ">" + band + " " +
                 "<MODE:" + mod.Length + ">" + mod + " " +
-                "<FREQ:" + frekvencija.Length + ">" + frekvencija + " " +
                 "<CALL:" + oznaka.Length + ">" + oznaka + " " +
                 "<RST_SENT:" + s_rst.Length + ">" + s_rst + " " +
                 "<RST_RCVD:" + r_rst.Length + ">" + r_rst + " " +
-                "<GRID_SQUARE:" + lokator.Length + ">" + lokator +
                 "<EOR>";
 
             return parse;
@@ -65,17 +83,13 @@ namespace QSOLogger
             {
                 using (StreamWriter writer = new StreamWriter(path))
                 {
-                    string header = "<ADIF_VER:5>3.1.5\n" +
-                        "<PROGRAMID:9>QSOLogger\n" +
-                        "<EOH>";
-
-                    writer.Write(header + "\n");
+                    writer.WriteLine(ADIF_Header());
                 }
             }
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
-                writer.Write(ADIF_Parse() + "\n");
+                writer.WriteLine(ADIF_Parse());
             }
         }
     }

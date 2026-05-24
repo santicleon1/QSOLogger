@@ -50,7 +50,6 @@ namespace QSOLogger
         {
             LogEntry logEntry = new LogEntry
             {
-                vrijeme = DateTime.UtcNow.ToString("HHmmss"),
                 band = band.Text,
                 mod = mod.Text,
                 frekvencija = frekvencija.Text,
