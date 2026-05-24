@@ -50,6 +50,8 @@
             this.mod = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.frekvencija = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,7 +172,7 @@
             this.veze_log.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.veze_log.FormattingEnabled = true;
             this.veze_log.ItemHeight = 22;
-            this.veze_log.Location = new System.Drawing.Point(10, 152);
+            this.veze_log.Location = new System.Drawing.Point(10, 197);
             this.veze_log.Name = "veze_log";
             this.veze_log.Size = new System.Drawing.Size(696, 224);
             this.veze_log.TabIndex = 10;
@@ -180,7 +182,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stanicaToolStripMenuItem,
-            this.informacijeToolStripMenuItem});
+            this.informacijeToolStripMenuItem,
+            this.logToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(714, 24);
@@ -232,14 +235,13 @@
             this.band.Items.AddRange(new object[] {
             "160m",
             "80m",
-            "60m",
             "40m",
             "30m",
             "20m",
+            "17m",
             "15m",
-            "10m",
-            "6m",
-            "2m"});
+            "12m",
+            "10m"});
             this.band.Location = new System.Drawing.Point(116, 44);
             this.band.Name = "band";
             this.band.Size = new System.Drawing.Size(75, 32);
@@ -280,13 +282,32 @@
             this.frekvencija.Size = new System.Drawing.Size(110, 32);
             this.frekvencija.TabIndex = 20;
             this.frekvencija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.frekvencija.TextChanged += new System.EventHandler(this.frekvencija_TextChanged);
             this.frekvencija.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Unesi_vezu);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.textBox1.Location = new System.Drawing.Point(10, 162);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(696, 26);
+            this.textBox1.TabIndex = 22;
+            this.textBox1.Text = " Vrijeme | Band | Mod | Frekvencija | Oznaka | Pre. RST | Pri. RST | Lokator";
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
             // Logger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 387);
+            this.ClientSize = new System.Drawing.Size(714, 433);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.frekvencija);
             this.Controls.Add(this.mod);
@@ -305,8 +326,11 @@
             this.Controls.Add(this.s_rst);
             this.Controls.Add(this.oznaka);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Logger";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QSOLogger";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Unesi_vezu);
             this.menuStrip1.ResumeLayout(false);
@@ -339,6 +363,8 @@
         private System.Windows.Forms.ComboBox mod;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox frekvencija;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
     }
 }
 
