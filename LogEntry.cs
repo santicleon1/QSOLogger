@@ -35,7 +35,7 @@ namespace QSOLogger
         public string ADIF_Header()
         {
             return
-                "ADIF from QSOLogger by santicleon1" + 
+                "ADIF from QSOLogger by santicleon1\n" + 
                 "<ADIF_VER:5>3.1.7\n" +
                 "<CREATED_TIMESTAMP:15>" + DateTime.UtcNow.ToString("yyyyMMdd HHmmss") + "\n" +
                 "<PROGRAMID:9>QSOLogger\n" +
