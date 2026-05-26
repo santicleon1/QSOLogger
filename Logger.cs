@@ -18,9 +18,12 @@ namespace QSOLogger
         {
             InitializeComponent();
             Init();
+            stanica.Load_Data();
         }
 
         // Init
+
+        readonly Station stanica = new Station();
 
         void Init()
         {
@@ -173,11 +176,6 @@ namespace QSOLogger
             }
         }
 
-        private void Fetch_Station_Data()
-        {
-            
-        }
-
         private void Otvori_Log_Folder()
         {
             if (!Directory.Exists("LOG"))
@@ -218,7 +216,7 @@ namespace QSOLogger
 
         private void stanicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Station stanica = new Station();
+            stanica.ShowDialog();
         }
     }
 }

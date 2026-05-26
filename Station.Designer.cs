@@ -54,7 +54,7 @@
             this.oznaka_stanice.Location = new System.Drawing.Point(12, 33);
             this.oznaka_stanice.Name = "oznaka_stanice";
             this.oznaka_stanice.Size = new System.Drawing.Size(134, 32);
-            this.oznaka_stanice.TabIndex = 6;
+            this.oznaka_stanice.TabIndex = 0;
             this.oznaka_stanice.Text = "LB100XCS";
             this.oznaka_stanice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -75,7 +75,7 @@
             this.oznaka_operatora.Location = new System.Drawing.Point(12, 99);
             this.oznaka_operatora.Name = "oznaka_operatora";
             this.oznaka_operatora.Size = new System.Drawing.Size(134, 32);
-            this.oznaka_operatora.TabIndex = 8;
+            this.oznaka_operatora.TabIndex = 2;
             this.oznaka_operatora.Text = "LB100XCS";
             this.oznaka_operatora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -96,7 +96,7 @@
             this.lokator_stanice.Location = new System.Drawing.Point(152, 33);
             this.lokator_stanice.Name = "lokator_stanice";
             this.lokator_stanice.Size = new System.Drawing.Size(110, 32);
-            this.lokator_stanice.TabIndex = 10;
+            this.lokator_stanice.TabIndex = 1;
             this.lokator_stanice.Text = "JN85KV13";
             this.lokator_stanice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -106,7 +106,7 @@
             this.spremi.Location = new System.Drawing.Point(166, 89);
             this.spremi.Name = "spremi";
             this.spremi.Size = new System.Drawing.Size(96, 51);
-            this.spremi.TabIndex = 12;
+            this.spremi.TabIndex = 3;
             this.spremi.Text = "Spremi";
             this.spremi.UseVisualStyleBackColor = true;
             this.spremi.Click += new System.EventHandler(this.spremi_Click);
@@ -124,6 +124,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.oznaka_stanice);
             this.Name = "Station";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Station";
             this.ResumeLayout(false);
             this.PerformLayout();

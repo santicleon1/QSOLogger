@@ -17,10 +17,10 @@ namespace QSOLogger
         public Station()
         {
             InitializeComponent();
-            Load_Data();
+            ControlBox = false;
         }
 
-        private void Load_Data()
+        public void Load_Data()
         {
             if (File.Exists("Station_Info.dat"))
             {
@@ -28,31 +28,54 @@ namespace QSOLogger
 
                 using (StreamReader sr = new StreamReader("Station_Info.dat"))
                 {
-                    data.Add(sr.ReadLine());
+                    while (!sr.EndOfStream)
+                    {
+                        data.Add(sr.ReadLine());
+                    }
                 }
 
                 oznaka_stanice.Text = (string)data[0];
                 lokator_stanice.Text = (string)data[1];
                 oznaka_operatora.Text = (string)data[2];
             }
+
+            else
+            {
+                ShowDialog();
+            }       
         }
 
-        private void Save_Data()
+        private bool Save_Data()
         {
-            string info =
-                oznaka_stanice.Text + "\n" +
-                lokator_stanice.Text + "\n" +
-                oznaka_operatora.Text + "\n";
+            ArrayList info = new ArrayList() { oznaka_stanice.Text, lokator_stanice.Text, oznaka_operatora.Text };
+
+            foreach (var item in info)
+            {
+                if ((string)item == "")
+                {
+                    MessageBox.Show("Invalid data!");
+                    return false;
+                }
+            }
 
             using (StreamWriter sw = new StreamWriter("Station_Info.dat"))
             {
-                sw.WriteLine(info);
+                foreach (var item in info)
+                {
+                    sw.WriteLine(item);
+                }
             }
+
+            return true;
         }
 
         private void spremi_Click(object sender, EventArgs e)
         {
-            Save_Data();
+            if (Save_Data())
+            {
+                Load_Data();
+                Close();
+            }
         }
     }
 }
