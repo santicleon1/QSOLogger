@@ -173,6 +173,26 @@ namespace QSOLogger
             }
         }
 
+        private void Fetch_Station_Data()
+        {
+            
+        }
+
+        private void Otvori_Log_Folder()
+        {
+            if (!Directory.Exists("LOG"))
+            {
+                Directory.CreateDirectory("LOG");
+            }
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "explorer.exe",
+                Arguments = Directory.GetCurrentDirectory() + "\\LOG\\",
+                UseShellExecute = true
+            });
+        }
+
 
         // VS Handlers
 
@@ -193,17 +213,12 @@ namespace QSOLogger
 
         private void logToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Directory.Exists("LOG"))
-            {
-                Directory.CreateDirectory("LOG");
-            }
+            Otvori_Log_Folder();
+        }
 
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "explorer.exe",
-                Arguments = Directory.GetCurrentDirectory() + "\\LOG\\",
-                UseShellExecute = true
-            });
+        private void stanicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Station stanica = new Station();
         }
     }
 }

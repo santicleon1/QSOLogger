@@ -43,6 +43,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.stanicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacijeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.frekvencija = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,12 +195,20 @@
             this.stanicaToolStripMenuItem.Name = "stanicaToolStripMenuItem";
             this.stanicaToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.stanicaToolStripMenuItem.Text = "Stanica";
+            this.stanicaToolStripMenuItem.Click += new System.EventHandler(this.stanicaToolStripMenuItem_Click);
             // 
             // informacijeToolStripMenuItem
             // 
             this.informacijeToolStripMenuItem.Name = "informacijeToolStripMenuItem";
             this.informacijeToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.informacijeToolStripMenuItem.Text = "Informacije";
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -294,13 +302,6 @@
             this.textBox1.Size = new System.Drawing.Size(696, 26);
             this.textBox1.TabIndex = 22;
             this.textBox1.Text = " Vrijeme | Band | Mod | Frekvencija | Oznaka | Pre. RST | Pri. RST | Lokator";
-            // 
-            // logToolStripMenuItem
-            // 
-            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.logToolStripMenuItem.Text = "Log";
-            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
             // Logger
             // 
