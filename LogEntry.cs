@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,6 +13,8 @@ namespace QSOLogger
 {
     internal class LogEntry
     {
+        Station stanica = new Station();
+
         public string band;
         public string mod;
         public string frekvencija;
@@ -45,6 +49,12 @@ namespace QSOLogger
 
         public string ADIF_Parse()
         {
+            ArrayList station_info = stanica.Read_Data();
+            string station_call = (string)station_info[0];
+            string station_locator = (string)station_info[1];
+            string operator_call = (string)station_info[2];
+
+
             var datum = DateTime.UtcNow.ToString("yyyyMMdd");
             var vrijeme = DateTime.UtcNow.ToString("HHmmss");
 
@@ -64,6 +74,11 @@ namespace QSOLogger
                 "<CALL:" + oznaka.Length + ">" + oznaka + " " +
                 "<RST_SENT:" + s_rst.Length + ">" + s_rst + " " +
                 "<RST_RCVD:" + r_rst.Length + ">" + r_rst + " " +
+
+                "<STATION_CALLSIGN:" + station_call.Length + ">" + station_call + " " +
+                "<MY_GRIDSQUARE:" + station_locator.Length + ">" + station_locator + " " +
+                "<OPERATOR:" + operator_call.Length + ">" + operator_call + " " +
+
                 "<EOR>";
 
             return parse;

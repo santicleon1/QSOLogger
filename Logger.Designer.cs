@@ -301,6 +301,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(696, 26);
             this.textBox1.TabIndex = 22;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = " Vrijeme | Band | Mod | Frekvencija | Oznaka | Pre. RST | Pri. RST | Lokator";
             // 
             // Logger
