@@ -35,13 +35,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lokator_stanice = new System.Windows.Forms.TextBox();
             this.spremi = new System.Windows.Forms.Button();
+            this.unlock = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(19, 13);
+            this.label2.Location = new System.Drawing.Point(59, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 17);
             this.label2.TabIndex = 7;
@@ -50,8 +51,9 @@
             // oznaka_stanice
             // 
             this.oznaka_stanice.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.oznaka_stanice.Enabled = false;
             this.oznaka_stanice.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.oznaka_stanice.Location = new System.Drawing.Point(12, 33);
+            this.oznaka_stanice.Location = new System.Drawing.Point(52, 29);
             this.oznaka_stanice.Name = "oznaka_stanice";
             this.oznaka_stanice.Size = new System.Drawing.Size(134, 32);
             this.oznaka_stanice.TabIndex = 0;
@@ -83,7 +85,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(174, 13);
+            this.label5.Location = new System.Drawing.Point(214, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 11;
@@ -92,8 +94,9 @@
             // lokator_stanice
             // 
             this.lokator_stanice.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lokator_stanice.Enabled = false;
             this.lokator_stanice.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lokator_stanice.Location = new System.Drawing.Point(152, 33);
+            this.lokator_stanice.Location = new System.Drawing.Point(192, 29);
             this.lokator_stanice.Name = "lokator_stanice";
             this.lokator_stanice.Size = new System.Drawing.Size(110, 32);
             this.lokator_stanice.TabIndex = 1;
@@ -103,19 +106,31 @@
             // spremi
             // 
             this.spremi.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.spremi.Location = new System.Drawing.Point(166, 89);
+            this.spremi.Location = new System.Drawing.Point(268, 90);
             this.spremi.Name = "spremi";
-            this.spremi.Size = new System.Drawing.Size(96, 51);
+            this.spremi.Size = new System.Drawing.Size(83, 51);
             this.spremi.TabIndex = 3;
             this.spremi.Text = "Spremi";
             this.spremi.UseVisualStyleBackColor = true;
             this.spremi.Click += new System.EventHandler(this.spremi_Click);
             // 
+            // unlock
+            // 
+            this.unlock.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.unlock.Location = new System.Drawing.Point(161, 90);
+            this.unlock.Name = "unlock";
+            this.unlock.Size = new System.Drawing.Size(101, 51);
+            this.unlock.TabIndex = 12;
+            this.unlock.Text = "Otključaj";
+            this.unlock.UseVisualStyleBackColor = true;
+            this.unlock.Click += new System.EventHandler(this.unlock_Click);
+            // 
             // Station
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 170);
+            this.ClientSize = new System.Drawing.Size(363, 170);
+            this.Controls.Add(this.unlock);
             this.Controls.Add(this.spremi);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lokator_stanice);
@@ -140,5 +155,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox lokator_stanice;
         private System.Windows.Forms.Button spremi;
+        private System.Windows.Forms.Button unlock;
     }
 }
