@@ -17,6 +17,7 @@ namespace QSOLogger
         public Station()
         {
             InitializeComponent();
+            Load_Data();
             ControlBox = false;
         }
 
@@ -81,7 +82,21 @@ namespace QSOLogger
             if (Save_Data())
             {
                 Load_Data();
+
+                oznaka_stanice.Enabled = false;
+                lokator_stanice.Enabled = false;
                 Close();
+            }
+        }
+
+        private void unlock_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                oznaka_stanice.Enabled = true;
+                lokator_stanice.Enabled = true;
             }
         }
     }

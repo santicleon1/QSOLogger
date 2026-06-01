@@ -42,7 +42,6 @@
             this.veze_log = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.stanicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informacijeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
@@ -52,6 +51,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.frekvencija = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lokator_stanice = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.oznaka_stanice = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.oznaka_operatora = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,7 +187,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stanicaToolStripMenuItem,
-            this.informacijeToolStripMenuItem,
             this.logToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -196,12 +200,6 @@
             this.stanicaToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.stanicaToolStripMenuItem.Text = "Stanica";
             this.stanicaToolStripMenuItem.Click += new System.EventHandler(this.stanicaToolStripMenuItem_Click);
-            // 
-            // informacijeToolStripMenuItem
-            // 
-            this.informacijeToolStripMenuItem.Name = "informacijeToolStripMenuItem";
-            this.informacijeToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.informacijeToolStripMenuItem.Text = "Informacije";
             // 
             // logToolStripMenuItem
             // 
@@ -304,11 +302,83 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = " Vrijeme | Band | Mod | Frekvencija | Oznaka | Pre. RST | Pri. RST | Lokator";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(578, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(128, 17);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Lokator Stanice";
+            // 
+            // lokator_stanice
+            // 
+            this.lokator_stanice.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lokator_stanice.Enabled = false;
+            this.lokator_stanice.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lokator_stanice.Location = new System.Drawing.Point(589, 44);
+            this.lokator_stanice.Name = "lokator_stanice";
+            this.lokator_stanice.Size = new System.Drawing.Size(110, 32);
+            this.lokator_stanice.TabIndex = 24;
+            this.lokator_stanice.Text = "JN85KV13";
+            this.lokator_stanice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(452, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 17);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Oznaka Stanice";
+            // 
+            // oznaka_stanice
+            // 
+            this.oznaka_stanice.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.oznaka_stanice.Enabled = false;
+            this.oznaka_stanice.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.oznaka_stanice.Location = new System.Drawing.Point(445, 44);
+            this.oznaka_stanice.Name = "oznaka_stanice";
+            this.oznaka_stanice.Size = new System.Drawing.Size(134, 32);
+            this.oznaka_stanice.TabIndex = 23;
+            this.oznaka_stanice.Text = "LB100XCS";
+            this.oznaka_stanice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(563, 85);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(136, 17);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Oznaka Operatora";
+            // 
+            // oznaka_operatora
+            // 
+            this.oznaka_operatora.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.oznaka_operatora.Enabled = false;
+            this.oznaka_operatora.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.oznaka_operatora.Location = new System.Drawing.Point(565, 105);
+            this.oznaka_operatora.Name = "oznaka_operatora";
+            this.oznaka_operatora.Size = new System.Drawing.Size(134, 32);
+            this.oznaka_operatora.TabIndex = 27;
+            this.oznaka_operatora.Text = "LB100XCS";
+            this.oznaka_operatora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Logger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 433);
+            this.ClientSize = new System.Drawing.Size(714, 430);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.oznaka_operatora);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lokator_stanice);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.oznaka_stanice);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.frekvencija);
@@ -354,10 +424,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox lokator;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox veze_log;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem stanicaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informacijeToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -367,6 +435,13 @@
         private System.Windows.Forms.TextBox frekvencija;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
+        private System.Windows.Forms.ListBox veze_log;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox lokator_stanice;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox oznaka_stanice;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox oznaka_operatora;
     }
 }
 

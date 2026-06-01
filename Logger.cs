@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +19,18 @@ namespace QSOLogger
         {
             InitializeComponent();
             Init();
-            stanica.Load_Data();
+
+            ArrayList data = stanica.Read_Data();
+
+            oznaka_stanice.Text = (string)data[0];
+            lokator_stanice.Text = (string)data[1];
+            oznaka_operatora.Text = (string)data[2];
         }
 
         // Init
 
         readonly Station stanica = new Station();
+
 
         void Init()
         {
@@ -217,6 +224,12 @@ namespace QSOLogger
         private void stanicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             stanica.ShowDialog();
+
+            ArrayList data = stanica.Read_Data();
+
+            oznaka_stanice.Text = (string)data[0];
+            lokator_stanice.Text = (string)data[1];
+            oznaka_operatora.Text = (string)data[2];
         }
     }
 }
