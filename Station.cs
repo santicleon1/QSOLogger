@@ -24,15 +24,7 @@ namespace QSOLogger
         {
             if (File.Exists("Station_Info.dat"))
             {
-                ArrayList data = new ArrayList();
-
-                using (StreamReader sr = new StreamReader("Station_Info.dat"))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        data.Add(sr.ReadLine());
-                    }
-                }
+                ArrayList data = Read_Data();
 
                 oznaka_stanice.Text = (string)data[0];
                 lokator_stanice.Text = (string)data[1];
@@ -43,6 +35,21 @@ namespace QSOLogger
             {
                 ShowDialog();
             }       
+        }
+
+        public ArrayList Read_Data()
+        {
+            ArrayList data = new ArrayList();
+
+            using (StreamReader sr = new StreamReader("Station_Info.dat"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    data.Add(sr.ReadLine());
+                }
+            }
+
+            return data;
         }
 
         private bool Save_Data()
