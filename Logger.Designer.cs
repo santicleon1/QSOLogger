@@ -57,6 +57,7 @@
             this.oznaka_stanice = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.oznaka_operatora = new System.Windows.Forms.TextBox();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,7 +188,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stanicaToolStripMenuItem,
-            this.logToolStripMenuItem});
+            this.logToolStripMenuItem,
+            this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(714, 24);
@@ -368,6 +370,13 @@
             this.oznaka_operatora.Text = "LB100XCS";
             this.oznaka_operatora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
             // Logger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,6 +451,7 @@
         private System.Windows.Forms.TextBox oznaka_stanice;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox oznaka_operatora;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
     }
 }
 

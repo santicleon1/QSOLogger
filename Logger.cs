@@ -231,5 +231,11 @@ namespace QSOLogger
             lokator_stanice.Text = (string)data[1];
             oznaka_operatora.Text = (string)data[2];
         }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Info info = new Info();
+            info.ShowDialog();
+        }
     }
 }
