@@ -95,6 +95,7 @@
             this.cancel.TabIndex = 3;
             this.cancel.Text = "Odustani";
             this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // Login
             // 

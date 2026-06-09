@@ -94,7 +94,7 @@ namespace QSOLogger
                 }
             }
 
-            input = new Control[] { s_rst, r_rst };
+            input = new Control[] {s_rst, r_rst};
             foreach (var item in input)
             {
                 if (!int.TryParse(item.Text, out _))

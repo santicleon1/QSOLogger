@@ -56,5 +56,10 @@ namespace QSOLogger
                 Login_Resolver();
             }
         }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
